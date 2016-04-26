@@ -18,4 +18,26 @@ public class Durchschnitt {
         // TODO code application logic here
     }
     
+    /**
+     * Methode zur Berechnung des Durchschnittes eines Arrays 
+     * von nichtnegativen int-Zahlen.
+     * 
+     * @param feld ein Array von int-Zahlen.
+     * @return Der berechnete Durchschnitt der Zahlen im Array.
+     */
+    public double berechneDurchschnitt(int[] feld) {
+        // Der Durchschnitt ergibt sich aus der Summe der Array-Element dividiert durch null.
+        double durchschnitt = 0.0; // Initalisierung
+        for(int i : feld){      //  jedes element i in feld
+            durchschnitt+=i;    //  wird zum durchschnitt addiert
+        }
+        
+        // die Summe muss nun durch die Anzahl der Array-Elemente dividiert werden.
+        durchschnitt/=feld.length; 
+        
+        // Da die JVM bei einer Division durch 0 zu NaN auswertet, muessen wir dies pruefen
+        // und im gegebenen Fall mit 0 ueberschreiben.
+        return (Double.isNaN(durchschnitt))? 0 : durchschnitt; 
+    }
+    
 }
